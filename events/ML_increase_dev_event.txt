@@ -86,25 +86,22 @@ country_event = {
 	id = increase_dev_event.11
 	is_triggered_only = yes
 	hidden = yes
+	trigger = {
+		tag = REB
+	}
 
 	immediate = {
 		every_country = {
 			country_event = {
 				id = increase_dev_event.10
-				days = 0
+				days = 1
 			}
 		}
-		country_event = {
-			id = increase_dev_event.11
-			days = 366
-		}
-		log = "test"
+		3216 = { add_province_triggered_modifier =	counter_of_institutions	}
 	}
 
 	option = {	
-		if = {
-			limit = { ai = no }
-		}
+
 	}
 }
 
@@ -117,7 +114,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		#NOT = {  is_SPEC_TAG = yes }  #this genrates a error if uncommtend 
+		always =yes
 	}
 
 	immediate = {
