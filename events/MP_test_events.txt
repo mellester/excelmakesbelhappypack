@@ -12,8 +12,7 @@ country_event = {
 	}
 	immediate = {
 
-			  
-		}
+			
 	}
 
 	option = {
