@@ -18,7 +18,7 @@ country_event = {
 
 	option = {
 		country_event = {
-			id = MP_test_events.1
+			id = MP_test_events.2
 			days = 1
 		}
 	}
@@ -28,7 +28,7 @@ country_event = {
 
 country_event = {
 	#give free ideas to vassels/released natiobns upon release
-	id = MP_test_events.1
+	id = MP_test_events.2
 	is_triggered_only = yes
 	title = MP_test_events.1.t
 	desc = MP_test_events.1.d 
