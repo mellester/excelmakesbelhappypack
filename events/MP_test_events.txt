@@ -53,3 +53,34 @@ country_event = {
 	}
 
 }
+
+country_event = {
+	id = MP_test_events.4
+	title = "pirates.4.t"
+	picture = BARBARY_PIRATES_eventPicture
+	desc = "pirates.4.d"
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOS
+		num_of_cities = 2
+		is_subject = no
+	}
+	
+	immediate = {
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = { # play as the pirates
+		name = "pirates.4.a"
+		trigger = {
+			ai = no
+		}
+		switch_tag = SLE
+	}
+	option = { #
+}
