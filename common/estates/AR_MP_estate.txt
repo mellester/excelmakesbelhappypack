@@ -1,4 +1,4 @@
-estate_rajput = {
+push estate_rajput = {
 	icon = 10
 	
 	color = { 220 20 20 } #Red
