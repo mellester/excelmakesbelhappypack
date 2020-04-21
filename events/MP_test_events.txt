@@ -17,9 +17,9 @@ country_event = {
 	}
 
 	option = {
+		name = "test"
 		country_event = {
 			id = MP_test_events.2
-			days = 1
 		}
 	}
 
