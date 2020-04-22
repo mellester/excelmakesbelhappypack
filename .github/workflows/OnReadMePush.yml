@@ -29,7 +29,7 @@ jobs:
       #run the python script
     - name: Run pyhton
       working-directory: python
-      run: python python\OnReadMePush.py --verionNumber ${{ steps.previoustag.outputs.tag }}
+      run: python OnReadMePush.py --verionNumber ${{ steps.previoustag.outputs.tag }}
     - name: Commit to repository
       run: |
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
