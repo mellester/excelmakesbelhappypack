@@ -5,7 +5,7 @@ from itertools import islice
 PARSER = argparse.ArgumentParser(description = """
 On a push to this github it will read the reamde.MD and replace the loc file
 Made by mellster""")
-PARSER.add_argument("--output", metavar='Output Filename', default="..\localisation\ML_ModPack_startup_l_english.yml", dest="output_filename", type=argparse.FileType('w'),
+PARSER.add_argument("--output", metavar='Output Filename', default="../localisation/ML_ModPack_startup_l_english.yml", dest="output_filename", type=argparse.FileType('w'),
 					help="The filename to use for the output file. Defaults to output-file.txt")
 PARSER.add_argument("--input", metavar='input Filename', default="../README.md", dest="input_filename",  type=argparse.FileType('r'),
 					help="The filename to use for the input file. Defaults to README.md")
