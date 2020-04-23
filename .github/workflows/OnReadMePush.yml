@@ -33,9 +33,9 @@ jobs:
     - name: Run pyhton
       working-directory: python
       run: |
-      echo $(ls .)
-      ls ../
-      python OnReadMePush.py --verionNumber ${{ steps.previoustag.outputs.tag }}
+        echo $(ls .)
+        echo $(ls ../)
+        python OnReadMePush.py --verionNumber ${{ steps.previoustag.outputs.tag }}
     - name: Commit to repository
       run: |
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
