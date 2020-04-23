@@ -18,8 +18,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - name: 'Get Previous tag'
-      id: previoustag
-      uses: "WyriHaximus/github-action-get-previous-tag@master"
+      id: tag
+      echo "::set-output name=TAG::${{ git describe --abbrev=0 }}"
     - uses: actions/setup-python@v1
     - name: Install dependencies fo python
       run: |
@@ -29,7 +29,7 @@ jobs:
       #run the python script
     - name: Run pyhton
       working-directory: python
-      run: python OnReadMePush.py --verionNumber ${{ steps.previoustag.outputs.tag }}
+      run: python OnReadMePush.py --verionNumber ${{ steps.tag.outputs.TAG }}
     - name: Commit to repository
       run: |
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
