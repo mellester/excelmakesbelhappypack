@@ -1,5 +1,6 @@
 # excelmakesbelhappypack
 ## v0.2.2
+- working dev click for ai
 - also some other improvemnt to ai !
 - Startup events know includes this readme.md file up to 30 lines. shoud be working! using .yml files! 
 ## Even more features
