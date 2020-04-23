@@ -1,4 +1,5 @@
 # excelmakesbelhappypack
+## v0.2.2
 - Startup events know includes this readme.md file up to 30 lines. shoud be working! 
 ## Even more features
 - Vassels get ideas now when released from the ether
