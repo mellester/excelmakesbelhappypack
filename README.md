@@ -6,7 +6,7 @@
 - Vassels get ideas now when released from the ether
 - Chromatic conflicts are now possible for all nations that border each other
 ## Feature Branch 
-- plugged in a dev click.
+- plugged in a dev click. 
 - Merged the on_actions
 ## Important Update
 - in order to reduce size of the mod you need to copy the mod file contents to your .mod file
