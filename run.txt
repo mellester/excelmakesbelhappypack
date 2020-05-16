@@ -1,16 +1,75 @@
-every_country = {    
-        export_to_variable = { #each country income
-            which = numX
-            value = trigger_value:monthly_income
-        }
-		set_variable = {
-			num = 300
-		}
-		if = {
-			check_variable = {
-				num = 300
+every_country = { 
+	limit = { tag = GOL   }
+	log = "[This.GetName] [This.renaissance_no.GetValue] [REB.dev_click_max.GetValue]"
+	if = { limit = { 
+	 if = { limit = { NOT = { has_institution = feudalism } } 
+	 REB = { PREV = {
+		variable_arithmetic_trigger = {
+			export_to_variable = {
+				variable_name = power
+				value = trigger_value:dip_power
 			}
-			add_prestige = 50
-		}
+			set_variable = {
+				which = dev_click_max		#scaled tech cost
+				value = PREV
+			}
+			export_to_variable = {
+				variable_name = powerCost
+				value = modifier:all_power_cost
+			}
+			change_variable = {
+				which = powerCost
+				which = feudalism_no
+			}
+			multiply_variable = {
+				which = powerCost	#buffer so AI clicks earlier
+				which = dev_click_max		#scaled tech cost
+			}
+			check_variable = {
+				which = power
+				which = powerCost
+			}
+		}  } }
+
+	}
+	else = {
+		always = no
+	}
+	
+	} log = "True" }
+	else = {
+		log = "false"
+	}
+	REB = {
+			export_to_variable = {
+				variable_name = power
+				value = trigger_value:dip_power
+				who = PREV
+			}
+			export_to_variable = {
+				variable_name = powerCost
+				value = modifier:all_power_cost
+				who = PREV
+			}
+			log = "[This.powerCost.GetValue]"
+			set_variable = {
+				which = power
+				which = PREV
+			}
+			change_variable = {
+				which = powerCost
+				which = feudalism_no
+			}
+
+			multiply_variable = {
+				which = powerCost	#buffer so AI clicks earlier
+				value = 999		#scaled tech cost
+			}
 		
-    }
+	log = "[This.powerCost.GetValue]"
+	log = "[This.renaissance_year.GetValue] renaissance_year"
+	log = "[This.feudalism_no.GetValue] feudalism_no"
+	log = "[This.power.GetValue] power"
+		}
+}
+

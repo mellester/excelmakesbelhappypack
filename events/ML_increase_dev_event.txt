@@ -4,15 +4,13 @@ country_event = {
 	# decision trigger
 	id = increase_dev_event.21
 	is_triggered_only = yes
-	hidden = yes
-	immediate = {
-
-	}
+	hidden = yes 
 	trigger = {
+		REB = {
 		check_variable = {
 			which = dev_click_max
 			value = 600
-		}
+		}	}
 		NOT = { has_country_flag = JustDevedFLAG }
 		NOT = { is_SPEC_TAG = yes }
 		OR = {
@@ -31,14 +29,14 @@ country_event = {
 		}
 	}
 
-	immediate = {
+	option = {
+		log = "Hit point cap for nation [This.GetName]"
+		clr_country_flag = JustDevedFLAG
 		set_country_flag = HitPointCap
 	}
 	
 
-	option = {	
-		#hidden
-	}
+
 }
 
 
@@ -48,8 +46,8 @@ country_event = {
 	is_triggered_only = yes
 	hidden = yes
 	trigger = {
-		NOT = {  is_SPEC_TAG = yes
- # do not trigger for special tags
+		NOT = {  
+			is_SPEC_TAG = yes # do not trigger for special tags
 		}
 	}
 
@@ -98,10 +96,11 @@ country_event = {
 	}
 	immediate = {
 		hidden_effect = {
-		set_variable = {
+			REB = {
+		set_variable = { #set immediate the value to 900 in case the options is never picked
 			which = dev_click_max
 			value = 900
-		}	}
+		}	} 	}
 	}
 	option = {
 		name = increase_dev_event.11.aa
@@ -190,10 +189,11 @@ country_event = {
 	id = increase_dev_event.10
 	title = "increase_dev_event"
 	desc = "increase_dev_event"
-	#hidden = yes
+	hidden = yes
 	is_triggered_only = yes
 
 	trigger = {
+		tag = REB
 		is_month_january = yes
 		check_variable = {
 			which = dev_click_max
@@ -223,8 +223,8 @@ country_event = {
 				divide_variable 	  = { which = penalty		value = 100 }
 				Math_effect_MIN_value = { which = penalty		value = 0.5 }
 				
-				change_variable = { which = feudalism_no		which = penalty }	log = "[This.feudalism_no.GetValue]"
-				change_variable = { which = renaissance_no		which = penalty }	log = "[This.renaissance_no.GetValue]"
+				change_variable = { which = feudalism_no		which = penalty }	log = "feudalism_no [This.feudalism_no.GetValue]"
+				change_variable = { which = renaissance_no		which = penalty }	log = "renaissance_no [This.renaissance_no.GetValue]"
 			}
 			new_world_i = {
 				set_variable 		  = { which = penalty		which = current_year }
@@ -233,9 +233,9 @@ country_event = {
 				divide_variable 	  = { which = penalty		value = 100 }
 				Math_effect_MIN_value = { which = penalty		value = 0.5 }
 				
-				change_variable = { which = feudalism_no		which = penalty }	log = "[This.feudalism_no.GetValue]"
-				change_variable = { which = renaissance_no		which = penalty }	log = "[This.renaissance_no.GetValue]"
-				change_variable = { which = new_world_i_no		which = penalty }	log = "[This.new_world_i_no.GetValue]"
+				change_variable = { which = feudalism_no		which = penalty }	log = "feudalism_no[This.feudalism_no.GetValue]"
+				change_variable = { which = renaissance_no		which = penalty }	log = "renaissance_no[This.renaissance_no.GetValue]"
+				change_variable = { which = new_world_i_no		which = penalty }	log = "new_world_i_no[This.new_world_i_no.GetValue]"
 			}
 			printing_press = {
 				set_variable 		  = { which = penalty		which = current_year }
@@ -291,18 +291,6 @@ country_event = {
 				change_variable = { which = manufactories_no	which = penalty }
 				change_variable = { which = enlightenment_no	which = penalty }
 			}
-		}
-		
-		every_country = {
-			set_variable = { which = dev_click_max		which = PREV }
-			
-			set_variable = { which = feudalism_no		which = PREV }
-			set_variable = { which = renaissance_no		which = PREV }
-			set_variable = { which = new_world_i_no		which = PREV }
-			set_variable = { which = printing_press_no	which = PREV }
-			set_variable = { which = global_trade_no	which = PREV }
-			set_variable = { which = manufactories_no	which = PREV }
-			set_variable = { which = enlightenment_no	which = PREV }
 		}
 	}
 	

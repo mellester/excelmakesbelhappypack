@@ -4,14 +4,11 @@ country_event = { #fired for every country on the 1sth day of the month
 	id = Monthly_Timer.1
 	hidden = yes
 	is_triggered_only = yes
-	immediate = {
+	option = {
 		country_event ={
-			id = increase_dev_event.10 #triggers only on jan first
+			id = increase_dev_event.10 #triggers only on jan first for rebels
 			days = 0
 		}
-	}
-	option = {
-		
 	}
 }
 

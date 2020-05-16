@@ -31,7 +31,7 @@ potential = {
         value = -1
       }
     }
-    log = "Month [This.month.GetValue] [This.PrevMonth.GetValue]"
+    #log = "Month [This.month.GetValue] [This.PrevMonth.GetValue]"
     if = {
       limit = {
         # check if the current month is higher than the prev one
@@ -46,19 +46,20 @@ potential = {
           } 
         }
       } 
-      log = "Its a new month removing the timer"
+      #log = "Firing Monthly eventss for all nations "
       remove_province_triggered_modifier = Monthly_Timer_Startup
       every_country = {
+        hidden_effect = {
         country_event = {
           id = Monthly_Timer.1
-          days = 0 #should fire on 1 of this month
+          days = 1 #should fire on 1 of this month
         }
         country_event = {
           id = Monthly_Timer.2
-          days = 1 #should fire on 2 of this month
+          days = 2 #should fire on 2 of this month
         }
-      }
-      REB = { 
+      } }
+      REB = {  # re add thimthis timer event in a month
         if = {
           limit = {
             is_month = 1
@@ -82,7 +83,7 @@ potential = {
         which = PrevMonth
         which = month
       }
-      log = "this [This.month.GetValue]"
+     # log = "this [This.month.GetValue]"
     }
   on_deactivation = {
   
