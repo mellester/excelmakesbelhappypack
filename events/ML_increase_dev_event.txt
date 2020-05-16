@@ -217,8 +217,8 @@ country_event = {
 		trigger_switch = {
 			on_trigger = is_institution_enabled
 			renaissance = {
-				if = { limit = { not = { check_variable = { which = renaissance_year value = 1444 } } }
-					set_variable = { which = renaissance_year	which = current_year }
+				if = { limit = { not = { check_variable = { which = renaissance_year value = 1444 } } } # check if first time
+					set_variable = { which = renaissance_year	which = current_year } # if so this year it the birth of the institution
 				}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1450 }
@@ -230,8 +230,8 @@ country_event = {
 				change_variable = { which = renaissance_no		which = penalty }	log = "renaissance_no [This.renaissance_no.GetValue]"
 			}
 			new_world_i = {
-				if = { limit = { not = { check_variable = { which = new_world_i_year value = 1444 } } }
-					set_variable = { which = new_world_i_year	which = current_year }
+				if = { limit = { not = { check_variable = { which = new_world_i_year value = 1444 } } } 
+					set_variable = { which = new_world_i_year	which = current_year } 
 				}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1500 }
