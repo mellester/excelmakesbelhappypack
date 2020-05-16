@@ -14,25 +14,34 @@ country_event = {
 		NOT = { has_country_flag = JustDevedFLAG }
 		NOT = { is_SPEC_TAG = yes }
 		OR = {
-			trigger_of_monarch_power = {
-				power_type = adm_power
-				min = 660
-			}
-			trigger_of_monarch_power = {
-				power_type = dip_power
-				min = 660
-			}
-			trigger_of_monarch_power = {
-				power_type = mil_power
-				min = 660
-			}
+			adm_power = 660
+			dip_power = 660
+			mil_power = 660
 		}
 	}
 
 	option = {
-		log = "Hit point cap for nation [This.GetName]"
-		clr_country_flag = JustDevedFLAG
-		set_country_flag = HitPointCap
+		if = {
+			limit = {
+				OR = {
+					trigger_of_monarch_power = {
+						power_type = adm_power
+						min = 660
+					}
+					trigger_of_monarch_power = {
+						power_type = dip_power
+						min = 660
+					}
+					trigger_of_monarch_power = {
+						power_type = mil_power
+						min = 660
+					}
+				}
+			}
+			log = "Hit point cap for nation [This.GetName]"
+			clr_country_flag = JustDevedFLAG
+			set_country_flag = HitPointCap
+		}
 	}
 	
 
