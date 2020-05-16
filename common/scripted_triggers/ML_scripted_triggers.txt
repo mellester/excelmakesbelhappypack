@@ -14,9 +14,7 @@ sripted_trigger_loc_dev_cost_less_than = {
 	}
 }
 	
-is_month_january = {
-	NOT = { is_month = 1 }
-}
+
 
 
 is_SPEC_TAG = {
@@ -210,7 +208,7 @@ trigger_of_monarch_power = {
 			}
 			change_variable = {
 				which = powerCost
-				which = enlightenment_no
+				which = penalty
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier

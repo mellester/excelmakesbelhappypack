@@ -1,15 +1,18 @@
-
-Monthly_Timer_Startup = {
-
-# Whether the triggered modifier is visible in the Province view window
-potential = {
-
+counter_of_institutions = {
+  # Whether the triggered modifier is visible in the Province view window
+  potential = {
+  always =yes
   }
 
-    # Whether the triggered modifier is active
-    trigger = {
+  # Whether the triggered modifier is active
+  trigger = {
       always = yes
   }
+
+  # The modifier to apply when the triggered modifier is active
+  
+  # Province scope
+  # Effects to execute when the triggered modifiers switches to active
   on_activation = {
     # set counter YearsCounter to count years 
     log = "Monthly_Timer_Startup"
@@ -85,6 +88,10 @@ potential = {
       }
      # log = "this [This.month.GetValue]"
     }
+  }
+  }
+  
+  # Effects to execute when the triggered modifiers switches to inactive
   on_deactivation = {
   
   } 

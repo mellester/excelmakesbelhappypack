@@ -56,6 +56,9 @@ country_event = {
 		}
 	}
 	
+	mean_time_to_happen = {
+		days = 0
+	}
 
 
 }
@@ -75,8 +78,8 @@ country_event = {
 	immediate = {
 		clr_country_flag = JustDevedFLAG
 		# Look in common\scripted_effects\00_scripted_effects_for_AI.txt
-		#HiddenUpdateDevFlagEffect = yes	
-		#HiddenUpdateDipDevFlagEffect = yes
+		HiddenUpdateDevFlagEffect = yes	
+		HiddenUpdateDipDevFlagEffect = yes
 	}
 
 	option = {	
@@ -101,8 +104,8 @@ province_event = {
 
 	option = {	
 		owner = { clr_country_flag = JustDevedFLAG }
-			#HiddenUpdateDevFlagEffect = yes
-			#HiddenUpdateDipDevFlagEffect = yes
+			HiddenUpdateDevFlagEffect = yes
+			HiddenUpdateDipDevFlagEffect = yes
 	}
 }
 
@@ -342,7 +345,391 @@ country_event = {
 				}
 			}
 		}
-	}
+		else_if = {
+			limit = { #during renaissance
+				NOT = {	is_institution_enabled = new_world_i } 
+			}
+			if = {
+				limit = { #no feudalism
+					NOT = { has_institution = feudalism }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no renaissance
+					NOT = { has_institution = renaissance }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = renaissance_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = renaissance_year	value = 1450 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = renaissance_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty			which = current_year }
+			}
+		}
+		else_if = {
+			limit = { #during new_world_i
+				NOT = {	is_institution_enabled = printing_press } 
+			}
+			if = {
+				limit = { #no feudalism
+					NOT = { has_institution = feudalism }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no renaissance
+					NOT = { has_institution = renaissance }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = renaissance_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = renaissance_year	value = 1450 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = renaissance_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty			which = current_year }
+			}
+			if = {
+				limit = { #no new_world_i
+					NOT = { has_institution = new_world_i }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = new_world_i_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = new_world_i_year	value = 1500 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = new_world_i_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty 			which = current_year }
+			}
+		}
+		else_if = {
+			limit = { #during printing_press
+				NOT = {	is_institution_enabled = global_trade } 
+			}
+			if = {
+				limit = { #no feudalism
+					NOT = { has_institution = feudalism }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no renaissance
+					NOT = { has_institution = renaissance }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no new_world_i
+					NOT = { has_institution = new_world_i }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = new_world_i_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = new_world_i_year	value = 1500 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = new_world_i_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty			which = current_year }
+			}
+			if = {
+				limit = { #no printing_press
+					NOT = { has_institution = printing_press }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = printing_press_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = printing_press_year	value = 1550 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = printing_press_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty 			which = current_year }
+			}
+		}
+		else_if = {
+			limit = { #during global_trade
+				NOT = {	is_institution_enabled = manufactories } 
+			}
+			if = {
+				limit = { #no feudalism
+					NOT = { has_institution = feudalism }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no renaissance
+					NOT = { has_institution = renaissance }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no new_world_i
+					NOT = { has_institution = new_world_i }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no printing_press
+					NOT = { has_institution = printing_press }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = printing_press_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = printing_press_year	value = 1550 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = printing_press_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty	   			which = current_year }
+			}
+			if = {
+				limit = { #no global_trade
+					NOT = { has_institution = global_trade }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = global_trade_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = global_trade_year	value = 1600 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = global_trade_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty 			which = current_year }
+			}
+		}
+		else_if = {
+			limit = { #during manufactories
+				NOT = {	is_institution_enabled = enlightenment } 
+			}
+			if = {
+				limit = { #no feudalism
+					NOT = { has_institution = feudalism }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no renaissance
+					NOT = { has_institution = renaissance }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no new_world_i
+					NOT = { has_institution = new_world_i }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no printing_press
+					NOT = { has_institution = printing_press }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no global_trade
+					NOT = { has_institution = global_trade }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = global_trade_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = global_trade_year	value = 1600 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = global_trade_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty				which = current_year }
+			}
+			if = {
+				limit = { #no manufactories
+					NOT = { has_institution = manufactories }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = manufactories_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = manufactories_year	value = 1650 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = manufactories_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty				which = current_year }
+			}
+		}
+		else = { #during enlightenment
+			if = {
+				limit = { #no feudalism
+					NOT = { has_institution = feudalism }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no renaissance
+					NOT = { has_institution = renaissance }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no new_world_i
+					NOT = { has_institution = new_world_i }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no printing_press
+					NOT = { has_institution = printing_press }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no global_trade
+					NOT = { has_institution = global_trade }
+				}
+				change_variable = {
+					which = penalty
+					value = 0.5
+				}
+			}
+			if = {
+				limit = { #no manufactories
+					NOT = { has_institution = manufactories }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = manufactories_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = manufactories_year	value = 1650 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = manufactories_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty				which = current_year }
+			}
+			if = {
+				limit = { #no enlightenment
+					NOT = { has_institution = enlightenment }
+				}
+				REB = {
+					PREV = {
+						set_variable = {
+							which = enlightenment_year
+							which = PREV
+						}
+					}
+				}
+				Math_effect_MAX_value = {	which = enlightenment_year	value = 1700 }
+				export_to_variable = {		which = current_year		value = trigger_value:is_year }
+				subtract_variable = {		which = current_year 		which = enlightenment_year }
+				Math_effect_MIN_value = {	which = current_year		value = 50 }
+				divide_variable = { 		which = current_year		value = 100 }
+				change_variable = {			which = penalty				which = current_year }
+			}
+		}
+		
+		export_to_variable = {	which = pCost			value = modifier:all_power_cost }
+		change_variable = {		which = pCost			which = penalty }
+		multiply_variable = {	which = monarchCap		which = pCost } #tooltip only
+	} }
 	
 	option = {
 		#name = "set_country_flag = HitPointCap"
@@ -382,9 +769,8 @@ country_event = {
 		#NOT = { ai = yes }
 	}
 	immediate = {
-		log = "Firing update dev for nations [This.GetName]"
 		HiddenUpdateDevFlagEffect = yes
-		#HiddenUpdateDipDevFlagEffect = yes
+		HiddenUpdateDipDevFlagEffect = yes
 	}
 	option = {
 		random_owned_province = {
@@ -392,7 +778,6 @@ country_event = {
 				has_province_flag = CheapDevTargetFlag
 			}
 			hidden_effect = { 
-				log = "added 1 base_tax  in province [This.GetName]"
 				owner = { 
 				set_country_flag = JustDevedFLAG
 				country_event = {
@@ -434,8 +819,7 @@ country_event = {
 		#NOT = { ai = yes }
 	}
 	immediate = {
-		log = "Firing update dev for nations [This.GetName]"
-		#HiddenUpdateDevFlagEffect = yes
+		HiddenUpdateDevFlagEffect = yes
 		HiddenUpdateDipDevFlagEffect = yes
 	}
 	option = {
@@ -445,7 +829,6 @@ country_event = {
 			}
 			hidden_effect = { 
 				owner = { 
-				log = "added 1 base_production  in province [This.GetName]"
 				set_country_flag = JustDevedFLAG
 				country_event = {
 					id = increase_dev_event.1
@@ -486,9 +869,8 @@ country_event = {
 		#NOT = { ai = yes }
 	}
 	immediate = {
-		log = "Firing update dev for nations [This.GetName]"
 		HiddenUpdateDevFlagEffect = yes
-		#HiddenUpdateDipDevFlagEffect = yes
+		HiddenUpdateDipDevFlagEffect = yes
 	}
 	option = {
 		random_owned_province = {
@@ -496,7 +878,6 @@ country_event = {
 				has_province_flag = CheapDevTargetFlag
 			}
 			hidden_effect = { 
-				log = "added 1 base_manpower in province [This.GetName]"
 				owner = { 
 				set_country_flag = JustDevedFLAG
 				country_event = {

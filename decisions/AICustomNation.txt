@@ -25,7 +25,10 @@ country_decisions = {
 					NOT = { has_country_flag = cnIdeas }
 				}
 				set_country_flag = cnIdeas
-				ML_on_country_vassal_released = yes
+				country_event = {
+					id = ML_FreeIdeasForAll.2
+					days = 0
+				}
 			}
         }
         ai_will_do = {
