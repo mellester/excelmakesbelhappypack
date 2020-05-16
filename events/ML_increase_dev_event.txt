@@ -3,8 +3,11 @@ namespace = increase_dev_event
 country_event = {
 	# decision trigger
 	id = increase_dev_event.21
-	is_triggered_only = yes
+	#is_triggered_only = yes
 	hidden = yes 
+	mean_time_to_happen = {
+		days = 30
+	}
 	trigger = {
 		REB = {
 		check_variable = {

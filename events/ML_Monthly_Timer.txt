@@ -18,10 +18,10 @@ country_event = { #fired for every country on the 2sth day of the month
 			id = increase_dev_event.10 #triggers only on jan for rebels
 			days = 0
 		}
-		country_event ={
-			id = increase_dev_event.21 # check if hit point cap
-			days = 0
-		}
+		# country_event ={
+		# 	id = increase_dev_event.21 # check if hit point cap
+		# 	days = 0
+		# }
 	}
 }
 
@@ -61,7 +61,6 @@ country_event = {
 				limit = {
 					NOT = { has_province_modifier = Monthly_Timer_Startup }
 				}
-				log = "started Monthly_Timer_Startup in [This.GetName]"
 				export_to_variable = {
 					which = PrevMonth
 					value = trigger_value:is_month
