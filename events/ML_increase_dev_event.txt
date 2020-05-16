@@ -217,6 +217,9 @@ country_event = {
 		trigger_switch = {
 			on_trigger = is_institution_enabled
 			renaissance = {
+				if = { limit = { not = { check_variable = { which = renaissance_year value = 1444 } } }
+					set_variable = { which = renaissance_year	which = current_year }
+				}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1450 }
 				subtract_variable 	  = { which = penalty		which = renaissance_year }
@@ -227,6 +230,9 @@ country_event = {
 				change_variable = { which = renaissance_no		which = penalty }	log = "renaissance_no [This.renaissance_no.GetValue]"
 			}
 			new_world_i = {
+				if = { limit = { not = { check_variable = { which = new_world_i_year value = 1444 } } }
+					set_variable = { which = new_world_i_year	which = current_year }
+				}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1500 }
 				subtract_variable 	  = { which = penalty		which = new_world_i_year }
@@ -238,6 +244,9 @@ country_event = {
 				change_variable = { which = new_world_i_no		which = penalty }	log = "new_world_i_no[This.new_world_i_no.GetValue]"
 			}
 			printing_press = {
+				if = { limit = { not = { check_variable = { which = printing_press_year value = 1444 } } }
+				set_variable = { which = printing_press_year	which = current_year }
+			}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1550 }
 				subtract_variable 	  = { which = penalty		which = printing_press_year }
@@ -250,6 +259,9 @@ country_event = {
 				change_variable = { which = printing_press_no	which = penalty }
 			}
 			global_trade = {
+				if = { limit = { not = { check_variable = { which = global_trade_year value = 1444 } } }
+				set_variable = { which = global_trade_year	which = current_year }
+			}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1600 }
 				subtract_variable 	  = { which = penalty		which = global_trade_year }
@@ -263,6 +275,9 @@ country_event = {
 				change_variable = { which = global_trade_no		which = penalty }
 			}
 			manufactories = {
+				if = { limit = { not = { check_variable = { which = manufactories_year value = 1444 } } }
+				set_variable = { which = manufactories_year	which = current_year }
+			}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1650 }
 				subtract_variable 	  = { which = penalty		which = manufactories_year }
@@ -277,6 +292,9 @@ country_event = {
 				change_variable = { which = manufactories_no	which = penalty }
 			}
 			enlightenment = {
+				if = { limit = { not = { check_variable = { which = enlightenment_year value = 1444 } } }
+				set_variable = { which = enlightenment_year	which = current_year }
+			}
 				set_variable 		  = { which = penalty		which = current_year }
 				Math_effect_MAX_value = { which = penalty		value = 1700 }
 				subtract_variable 	  = { which = penalty		which = enlightenment_year }

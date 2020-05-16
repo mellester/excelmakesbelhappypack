@@ -18,8 +18,9 @@ every_country = {
 		set_variable = { which = manufactories_no	value = 1	}
 		set_variable = { which = enlightenment_no	value = 1	}
 		
-		export_to_variable = { which = current_year	value = trigger_value:is_year }
-		set_variable 		  = { which = renaissance_year		value = 0 }  log = "renaissance_year [This.renaissance_year.GetValue]"
+		if = { limit = { not = { check_variable = { which = renaissance_year value = 1444 } } }
+		export_to_variable = { which = renaissance_year	value = trigger_value:is_year }
+		}
 				set_variable 		  = { which = penalty		which = current_year } log = "penalty1 [This.penalty.GetValue]"
 				Math_effect_MAX_value = { which = penalty		value = 1450 } log = "penalty2 [This.penalty.GetValue]"
 				subtract_variable 	  = { which = penalty		which = renaissance_year } log = "penalty3 [This.penalty.GetValue]"
