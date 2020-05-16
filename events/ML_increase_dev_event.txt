@@ -217,6 +217,7 @@ country_event = {
 	}
 
 	immediate = {
+		set_country_flag = yearly_update
 		log = "yearly institution counter for [This.GetName]"
 		
 		set_variable = { which = feudalism_no		value = 1.5 }

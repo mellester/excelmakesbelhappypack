@@ -232,3 +232,4 @@ on_startup = {
 	#/ This variable is used to identify when same_color_cb should be activated.
 	
 }
+
