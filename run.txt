@@ -1,75 +1,33 @@
 every_country = { 
 	limit = { tag = GOL   }
-	log = "[This.GetName] [This.renaissance_no.GetValue] [REB.dev_click_max.GetValue]"
-	if = { limit = { 
-	 if = { limit = { NOT = { has_institution = feudalism } } 
-	 REB = { PREV = {
-		variable_arithmetic_trigger = {
-			export_to_variable = {
-				variable_name = power
-				value = trigger_value:dip_power
-			}
-			set_variable = {
-				which = dev_click_max		#scaled tech cost
-				value = PREV
-			}
-			export_to_variable = {
-				variable_name = powerCost
-				value = modifier:all_power_cost
-			}
-			change_variable = {
-				which = powerCost
-				which = feudalism_no
-			}
-			multiply_variable = {
-				which = powerCost	#buffer so AI clicks earlier
-				which = dev_click_max		#scaled tech cost
-			}
-			check_variable = {
-				which = power
-				which = powerCost
-			}
-		}  } }
-
-	}
-	else = {
-		always = no
-	}
-	
-	} log = "True" }
-	else = {
-		log = "false"
-	}
 	REB = {
-			export_to_variable = {
-				variable_name = power
-				value = trigger_value:dip_power
-				who = PREV
-			}
-			export_to_variable = {
-				variable_name = powerCost
-				value = modifier:all_power_cost
-				who = PREV
-			}
-			log = "[This.powerCost.GetValue]"
-			set_variable = {
-				which = power
-				which = PREV
-			}
-			change_variable = {
-				which = powerCost
-				which = feudalism_no
-			}
-
-			multiply_variable = {
-				which = powerCost	#buffer so AI clicks earlier
-				value = 999		#scaled tech cost
-			}
-		
-	log = "[This.powerCost.GetValue]"
-	log = "[This.renaissance_year.GetValue] renaissance_year"
-	log = "[This.feudalism_no.GetValue] feudalism_no"
-	log = "[This.power.GetValue] power"
+		country_event ={
+			id = increase_dev_event.10 #triggers only on jan for rebels
+			days = 0
 		}
+	}
+	log = "[This.GetName][REB.renaissance_year.GetValue]"
+	set_variable 		  = {  temp	= 0.1 }
+	Math_effect_MAX_value = { which = temp		value = 0.5 }
+	log = "[This.GetName] [This.temp.GetValue] [REB.dev_click_max.GetValue]"
+	set_variable = { which = feudalism_no		value = 1.5 }
+		set_variable = { which = renaissance_no		value = 1	}
+		set_variable = { which = new_world_i_no		value = 1	}
+		set_variable = { which = printing_press_no	value = 1	}
+		set_variable = { which = global_trade_no	value = 1	}
+		set_variable = { which = manufactories_no	value = 1	}
+		set_variable = { which = enlightenment_no	value = 1	}
+		
+		export_to_variable = { which = current_year	value = trigger_value:is_year }
+		set_variable 		  = { which = renaissance_year		value = 0 }  log = "renaissance_year [This.renaissance_year.GetValue]"
+				set_variable 		  = { which = penalty		which = current_year } log = "penalty1 [This.penalty.GetValue]"
+				Math_effect_MAX_value = { which = penalty		value = 1450 } log = "penalty2 [This.penalty.GetValue]"
+				subtract_variable 	  = { which = penalty		which = renaissance_year } log = "penalty3 [This.penalty.GetValue]"
+				divide_variable 	  = { which = penalty		value = 100 } log = "penalt4y [This.penalty.GetValue]"
+				Math_effect_MIN_value = { which = penalty		value = 0.5 } log = "penalty [This.penalty.GetValue]"
+				
+				change_variable = { which = feudalism_no		which = penalty }	log = "feudalism_no [This.feudalism_no.GetValue]"
+				change_variable = { which = renaissance_no		which = penalty }	log = "renaissance_no [This.renaissance_no.GetValue]"
+			}
 }
 

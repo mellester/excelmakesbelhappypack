@@ -5,10 +5,6 @@ country_event = { #fired for every country on the 1sth day of the month
 	hidden = yes
 	is_triggered_only = yes
 	option = {
-		country_event ={
-			id = increase_dev_event.10 #triggers only on jan first for rebels
-			days = 0
-		}
 	}
 }
 
@@ -18,6 +14,10 @@ country_event = { #fired for every country on the 2sth day of the month
 	hidden = yes
 	is_triggered_only = yes
 	option = {
+		country_event ={
+			id = increase_dev_event.10 #triggers only on jan for rebels
+			days = 0
+		}
 		country_event ={
 			id = increase_dev_event.21 # check if hit point cap
 			days = 0
