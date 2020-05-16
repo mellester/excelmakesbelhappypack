@@ -202,7 +202,10 @@ country_event = {
 	title = "increase_dev_event"
 	desc = "increase_dev_event"
 	hidden = yes
-	is_triggered_only = yes
+	#is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 0
+	}
 
 	trigger = {
 		tag = REB
