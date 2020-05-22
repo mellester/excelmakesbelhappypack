@@ -124,9 +124,17 @@ country_event = {
 	title = increase_dev_event.11.t
 	desc = increase_dev_event.11.d
 	picture = INVENTION_eventPicture
-	is_triggered_only = yes
+	#is_triggered_only = yes
 	trigger = {
 		ai = no
+		REB = { NOT = {
+		check_variable = { #check if dev_click max is already set
+			which = dev_click_max
+			value = 500
+		} 	}	}
+	}
+	mean_time_to_happen = {
+		days = 0
 	}
 	immediate = {
 		hidden_effect = {
@@ -249,13 +257,13 @@ country_event = {
 			set_country_flag = yearly_update
 			log = "yearly institution counter for [This.GetName]"
 			
-			set_variable = { which = feudalism_no		value = 1.5 }
-			set_variable = { which = renaissance_no		value = 1	}
-			set_variable = { which = new_world_i_no		value = 1	}
-			set_variable = { which = printing_press_no	value = 1	}
-			set_variable = { which = global_trade_no	value = 1	}
-			set_variable = { which = manufactories_no	value = 1	}
-			set_variable = { which = enlightenment_no	value = 1	}
+			set_variable = { which = feudalismNo		value = 1.5 }
+			set_variable = { which = renaissanceNo		value = 1	}
+			set_variable = { which = newWorldINo		value = 1	}
+			set_variable = { which = printingPressNo	value = 1	}
+			set_variable = { which = globalTradeNo	value = 1	}
+			set_variable = { which = manufactoriesNo	value = 1	}
+			set_variable = { which = enlightenmentNO	value = 1	}
 			
 			export_to_variable = { which = current_year	value = trigger_value:is_year }
 			
@@ -271,8 +279,8 @@ country_event = {
 					divide_variable 	  = { which = penalty		value = 100 }
 					Math_effect_MIN_value = { which = penalty		value = 0.5 }
 					
-					change_variable = { which = feudalism_no		which = penalty }	log = "feudalism_no [This.feudalism_no.GetValue]"
-					change_variable = { which = renaissance_no		which = penalty }	log = "renaissance_no [This.renaissance_no.GetValue]"
+					change_variable = { which = feudalismNo		which = penalty }	log = "feudalismNo [This.feudalismNo.GetValue]"
+					change_variable = { which = renaissanceNo		which = penalty }	log = "renaissanceNo [This.renaissanceNo.GetValue]"
 				}
 				new_world_i = {
 					if = { limit = { not = { check_variable = { which = new_world_i_year value = 1444 } } } 
@@ -284,9 +292,9 @@ country_event = {
 					divide_variable 	  = { which = penalty		value = 100 }
 					Math_effect_MIN_value = { which = penalty		value = 0.5 }
 					
-					change_variable = { which = feudalism_no		which = penalty }	log = "feudalism_no[This.feudalism_no.GetValue]"
-					change_variable = { which = renaissance_no		which = penalty }	log = "renaissance_no[This.renaissance_no.GetValue]"
-					change_variable = { which = new_world_i_no		which = penalty }	log = "new_world_i_no[This.new_world_i_no.GetValue]"
+					change_variable = { which = feudalismNo		which = penalty }	log = "feudalismNo[This.feudalismNo.GetValue]"
+					change_variable = { which = renaissanceNo		which = penalty }	log = "renaissanceNo[This.renaissanceNo.GetValue]"
+					change_variable = { which = newWorldINo		which = penalty }	log = "newWorldINo[This.newWorldINo.GetValue]"
 				}
 				printing_press = {
 					if = { limit = { not = { check_variable = { which = printing_press_year value = 1444 } } }
@@ -298,10 +306,10 @@ country_event = {
 					divide_variable 	  = { which = penalty		value = 100 }
 					Math_effect_MIN_value = { which = penalty		value = 0.5 }
 					
-					change_variable = { which = feudalism_no		which = penalty }
-					change_variable = { which = renaissance_no		which = penalty }
-					change_variable = { which = new_world_i_no		which = penalty }
-					change_variable = { which = printing_press_no	which = penalty }
+					change_variable = { which = feudalismNo		which = penalty }
+					change_variable = { which = renaissanceNo		which = penalty }
+					change_variable = { which = newWorldINo		which = penalty }
+					change_variable = { which = printingPressNo	which = penalty }
 				}
 				global_trade = {
 					if = { limit = { not = { check_variable = { which = global_trade_year value = 1444 } } }
@@ -313,11 +321,11 @@ country_event = {
 					divide_variable 	  = { which = penalty		value = 100 }
 					Math_effect_MIN_value = { which = penalty		value = 0.5 }
 					
-					change_variable = { which = feudalism_no		which = penalty }
-					change_variable = { which = renaissance_no		which = penalty }
-					change_variable = { which = new_world_i_no		which = penalty }
-					change_variable = { which = printing_press_no	which = penalty }
-					change_variable = { which = global_trade_no		which = penalty }
+					change_variable = { which = feudalismNo		which = penalty }
+					change_variable = { which = renaissanceNo		which = penalty }
+					change_variable = { which = newWorldINo		which = penalty }
+					change_variable = { which = printingPressNo	which = penalty }
+					change_variable = { which = globalTradeNo		which = penalty }
 				}
 				manufactories = {
 					if = { limit = { not = { check_variable = { which = manufactories_year value = 1444 } } }
@@ -329,12 +337,12 @@ country_event = {
 					divide_variable 	  = { which = penalty		value = 100 }
 					Math_effect_MIN_value = { which = penalty		value = 0.5 }
 					
-					change_variable = { which = feudalism_no		which = penalty }
-					change_variable = { which = renaissance_no		which = penalty }
-					change_variable = { which = new_world_i_no		which = penalty }
-					change_variable = { which = printing_press_no	which = penalty }
-					change_variable = { which = global_trade_no		which = penalty }
-					change_variable = { which = manufactories_no	which = penalty }
+					change_variable = { which = feudalismNo		which = penalty }
+					change_variable = { which = renaissanceNo		which = penalty }
+					change_variable = { which = newWorldINo		which = penalty }
+					change_variable = { which = printingPressNo	which = penalty }
+					change_variable = { which = globalTradeNo		which = penalty }
+					change_variable = { which = manufactoriesNo	which = penalty }
 				}
 				enlightenment = {
 					if = { limit = { not = { check_variable = { which = enlightenment_year value = 1444 } } }
@@ -346,17 +354,17 @@ country_event = {
 					divide_variable 	  = { which = penalty		value = 100 }
 					Math_effect_MIN_value = { which = penalty		value = 0.5 }
 					
-					change_variable = { which = feudalism_no		which = penalty }
-					change_variable = { which = renaissance_no		which = penalty }
-					change_variable = { which = new_world_i_no		which = penalty }
-					change_variable = { which = printing_press_no	which = penalty }
-					change_variable = { which = global_trade_no		which = penalty }
-					change_variable = { which = manufactories_no	which = penalty }
-					change_variable = { which = enlightenment_no	which = penalty }
+					change_variable = { which = feudalismNo		which = penalty }
+					change_variable = { which = renaissanceNo		which = penalty }
+					change_variable = { which = newWorldINo		which = penalty }
+					change_variable = { which = printingPressNo	which = penalty }
+					change_variable = { which = globalTradeNo		which = penalty }
+					change_variable = { which = manufactoriesNo	which = penalty }
+					change_variable = { which = enlightenmentNO	which = penalty }
 				}
 			}
 		}
-		else_if = {
+		if = {
 			limit = { #during renaissance
 				NOT = {	is_institution_enabled = new_world_i } 
 			}

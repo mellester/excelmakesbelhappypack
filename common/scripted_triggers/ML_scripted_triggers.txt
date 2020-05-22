@@ -42,7 +42,7 @@ trigger_of_monarch_power = {
 			}
 			change_variable = {
 				which = powerCost
-				which = feudalism_no
+				which = feudalismNo
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier
@@ -70,7 +70,7 @@ trigger_of_monarch_power = {
 			}
 			change_variable = {
 				which = powerCost
-				which = renaissance_no
+				which = renaissanceNo
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier
@@ -98,7 +98,7 @@ trigger_of_monarch_power = {
 			}
 			change_variable = {
 				which = powerCost
-				which = new_world_i_no
+				which = newWorldINo
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier
@@ -126,7 +126,7 @@ trigger_of_monarch_power = {
 			}
 			change_variable = {
 				which = powerCost
-				which = printing_press_no
+				which = printingPressNo
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier
@@ -154,7 +154,7 @@ trigger_of_monarch_power = {
 			}
 			change_variable = {
 				which = powerCost
-				which = global_trade_no
+				which = globalTradeNo
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier
@@ -182,7 +182,7 @@ trigger_of_monarch_power = {
 			}
 			change_variable = {
 				which = powerCost
-				which = manufactories_no
+				which = manufactoriesNo
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier
@@ -211,6 +211,10 @@ trigger_of_monarch_power = {
 			change_variable = {
 				which = powerCost
 				which = penalty
+			}
+			change_variable = {
+				which = powerCost
+				which = enlightenmentNo
 			}
 			multiply_variable = {
 				which = powerCost	#buffer so AI clicks earlier
