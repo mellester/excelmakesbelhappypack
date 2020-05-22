@@ -13,3 +13,5 @@ python/*.sln
 python/.vs
 python/*.pyproj
 python/env
+cssify.sh
+text.txt
