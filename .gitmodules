@@ -1,0 +1,6 @@
+[submodule "Innocent-Eu4-mod"]
+	path = Innocent-Eu4-mod
+	url = https://github.com/mellester/Innocent-Eu4-mod.git
+[submodule "Theatrum-Orbis-Terrarum"]
+	path = modpackTerrarum
+	url = https://github.com/mellester/Theatrum-Orbis-Terrarum
